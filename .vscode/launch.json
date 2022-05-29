@@ -2,6 +2,38 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "dbg_local_sensing",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/devel/lib/local_sensing_node/pcl_render_node",
+            // fill previous line with the node you want to debug
+            "args": [
+                "_sensing_horizon:=5.0",
+                "_sensing_rate:=30",
+                "_estimation_rate:=30",
+                "_map/x_size:=32",
+                "_map/y_size:=10",
+                "_map/z_size:=10",
+                "_/pcl_render/cloud:=/map_generator/global_cloud",
+                "_/pcl_render/odometry:=/visual_slam/odom",
+                "_/pcl_render/dynamic_map:=/dynamic/point_cloud",
+            ], // parameter to this node 
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "prerun",
+            "MIMode": "gdb",
+            "avoidWindowsConsoleRedirection": true,
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "cloud_node",
             "type": "cppdbg",
             "request": "launch",
