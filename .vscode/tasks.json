@@ -2,6 +2,46 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "catkin_build: build",
+            "type": "catkin_build",
+            "task": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [
+                "$catkin-gcc",
+                "$catkin-cmake"
+            ],
+            "options": {
+                "shell": {
+                    "executable": "zsh"
+                },
+            }
+        },
+        {
+            "label": "catkin_build_dbg",
+            "type": "shell",
+            "command": "catkin",
+            "args": [
+                "build -DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [
+                "$catkin-gcc",
+                "$catkin-cmake"
+            ]           
+        },
+        {
             "label": "catkin_make",
             "type": "shell",
             "command": "catkin_make",
@@ -20,7 +60,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "catkin config --extend /opt/ros/kinetic && catkin build -DCMAKE_BUILD_TYPE = Debug -j16",
+            "command": "catkin config --extend /opt/ros/noetic && catkin build -DCMAKE_BUILD_TYPE = Debug -j16",
             "group": {
                 "kind": "build",
                 "isDefault": true
