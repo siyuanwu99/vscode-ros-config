@@ -60,10 +60,18 @@
         },
         {
             "name": "ROS: Launch",
+            "request": "launch",
+            "target": "${workspaceFolder}/src/thesis_planner/RAST_corridor_planning/launch/sim_planning_dyn.launch", // <<< Configure path to your launch file
+            "type": "ros",
+            "launch": ["rviz"]
+        },
+        {
+            "name": "ROS: Launch this",
             "type": "ros",
             "request": "launch",
-            "target": "${workspaceFolder}/src/detector/launch/detection.launch", // <<< Configure path to your launch file
-            "preLaunchTask": "make_debug_and_core", // <<< This is the task that will run before debugging starts
+            "target": "${file}", // <<< Configure path to your launch file
+            "type": "ros",
+            "launch": ["rviz"]        
         }
     ]
 }
